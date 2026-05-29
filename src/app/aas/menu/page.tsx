@@ -114,7 +114,7 @@ export default function AASMenuPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: 0.15 + 7 * 0.05 }}
             >
-              <Link href="/" className="block group">
+              <Link href="/select-machine" className="block group">
                 <div className="relative bg-white rounded-xl border border-red-100 px-3 py-4 sm:px-4 sm:py-5 hover:border-red-300 hover:shadow-lg hover:shadow-red-500/8 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-red-50/0 to-orange-50/0 group-hover:from-red-50/60 group-hover:to-orange-50/40 transition-all duration-300 rounded-xl" />
                   <div className="relative z-10 flex flex-col items-center gap-2.5">

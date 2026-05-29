@@ -46,42 +46,6 @@ export default function CentrifugePartsPage() {
         </motion.h1>
       </div>
 
-      {/* Subheading banner */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="relative z-10 px-5 sm:px-8 mb-6"
-      >
-        <div className="bg-gradient-to-r from-[#4169E1]/10 to-[#7C3AED]/10 border border-[#4169E1]/20 rounded-xl px-4 py-3 text-center">
-          <p className="text-[#1a237e] text-xs sm:text-sm font-semibold tracking-wide">
-            FULL AND WELL LABELED DIAGRAM OF A CENTRIFUGE MACHINE
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Labeled Diagram */}
-      <div className="relative z-10 px-5 sm:px-8 pb-8 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative rounded-2xl overflow-hidden shadow-lg bg-gray-50"
-        >
-          <Image
-            src="/images/centrifuge-parts-diagram.jpg"
-            alt="Full and well labeled diagram of a centrifuge machine showing external view, internal view, and working principle"
-            width={1400}
-            height={800}
-            className="w-full h-auto object-contain"
-            sizes="90vw"
-            priority
-          />
-        </motion.div>
-      </div>
-
-      <div className="h-px bg-gray-200 mx-5 sm:mx-8 mb-8" />
-
       {/* Parts Grid Section */}
       <div className="relative z-10 px-5 sm:px-8 pb-8 max-w-6xl mx-auto">
         <motion.div

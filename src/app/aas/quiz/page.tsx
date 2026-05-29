@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useRef } from 'react';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
@@ -24,7 +24,7 @@ function shuffleArray<T>(array: T[]): T[] {
 
 export default function AASQuizPage() {
   // Shuffle questions on first render, keep stable until retake
-  const [shuffledQuestions] = useState(() => shuffleArray(aasQuizQuestions));
+  const [shuffledQuestions, setShuffledQuestions] = useState(() => shuffleArray(aasQuizQuestions));
   const [shuffledOrder] = useState(() => {
     const order: number[] = [];
     for (let i = 0; i < aasQuizQuestions.length; i++) {
@@ -32,12 +32,50 @@ export default function AASQuizPage() {
     }
     return order;
   });
-  const retakeCounter = useRef(0);
-
   const [currentPage, setCurrentPage] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [pageState, setPageState] = useState<PageState>('quiz');
   const [expandedReview, setExpandedReview] = useState<number | null>(null);
+
+  // Restore quiz state from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('quiz-aas-state');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        // Restore shuffled question order so answers map correctly
+        if (parsed.shuffledIndices && Array.isArray(parsed.shuffledIndices) && parsed.shuffledIndices.length === aasQuizQuestions.length) {
+          const restored = parsed.shuffledIndices.map((i: number) => aasQuizQuestions[i]);
+          setShuffledQuestions(restored);
+        }
+        if (parsed.answers) setAnswers(parsed.answers);
+        if (typeof parsed.currentPage === 'number') setCurrentPage(parsed.currentPage);
+        if (parsed.pageState === 'result') setPageState('result');
+      } catch { /* ignore */ }
+    }
+  }, []);
+
+  // Save quiz state to localStorage on changes
+  useEffect(() => {
+    if (pageState === 'quiz') {
+      const shuffledIndices = shuffledQuestions.map(sq =>
+        aasQuizQuestions.findIndex(aq => aq.question === sq.question)
+      );
+      localStorage.setItem('quiz-aas-state', JSON.stringify({
+        shuffledIndices,
+        answers,
+        currentPage,
+        pageState,
+      }));
+    }
+  }, [answers, currentPage, pageState, shuffledQuestions]);
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  const retakeCounter = useRef(0);
 
   const pageQuestions = useMemo(() => {
     const start = currentPage * QUESTIONS_PER_PAGE;
@@ -59,17 +97,17 @@ export default function AASQuizPage() {
   };
 
   const handleSubmit = () => {
+    localStorage.removeItem('quiz-aas-state');
     setPageState('result');
   };
 
   const handleRetake = () => {
-    // Shuffle again on retake
+    localStorage.removeItem('quiz-aas-state');
     setAnswers({});
     setCurrentPage(0);
     setPageState('quiz');
     setExpandedReview(null);
     retakeCounter.current += 1;
-    // Force re-shuffle by using a new key approach — we trigger re-render
     window.location.href = '/aas/quiz';
   };
 

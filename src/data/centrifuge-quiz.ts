@@ -133,4 +133,127 @@ export const centrifugeQuizQuestions: QuizQuestion[] = [
     options: ["Open The Lid", "Remove All Tubes", "Ensure Samples Are Balanced Correctly", "Reduce Chamber Size"],
     correctAnswer: 2,
   },
+  // Page 3 continued: Q26-Q30
+  {
+    question: "What is the role of the drive shaft in a centrifuge?",
+    options: ["To Hold Sample Tubes", "To Transmit Rotational Power From Motor To Rotor", "To Cool The Chamber", "To Measure Speed"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which type of centrifuge rotor keeps tubes at a fixed angle during spinning?",
+    options: ["Swinging-Bucket Rotor", "Vertical Rotor", "Fixed-Angle Rotor", "Near-Vertical Rotor"],
+    correctAnswer: 2,
+  },
+  {
+    question: "What does RCF stand for in centrifugation?",
+    options: ["Rotational Centrifuge Frequency", "Relative Centrifugal Force", "Rotor Capacity Factor", "Rotation Control Function"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which material is most commonly used for manufacturing centrifuge rotors?",
+    options: ["Plastic", "Wood", "Aluminum Or Titanium", "Rubber"],
+    correctAnswer: 2,
+  },
+  {
+    question: "What is the primary purpose of a refrigerated centrifuge?",
+    options: ["To Increase Separation Speed", "To Protect Temperature-Sensitive Samples During Spinning", "To Reduce Noise Levels", "To Increase Rotor Capacity"],
+    correctAnswer: 1,
+  },
+  // Page 4: Q31-Q40
+  {
+    question: "A swinging-bucket rotor is most suitable for which type of separation?",
+    options: ["Pelleting Applications", "Density Gradient Separations", "Quick Spin Downs", "Industrial Processing"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is the function of the acceleration/deceleration profile in a centrifuge?",
+    options: ["To Change The Sample Volume", "To Control How Quickly The Rotor Speeds Up And Slows Down", "To Adjust The Temperature", "To Lock The Lid"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which of the following is a sign of bearing failure in a centrifuge?",
+    options: ["Increased Sample Volume", "Unusual Grinding Noise During Operation", "Faster Cooling", "Brighter Display"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is a microcentrifuge primarily used for?",
+    options: ["Industrial-Scale Separations", "Processing Small Sample Volumes (0.2-1.5 mL)", "Blood Bank Processing", "Uranium Enrichment"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which centrifuge type is best for separating subcellular organelles like ribosomes and DNA?",
+    options: ["Low-Speed Centrifuge", "Hand Centrifuge", "Ultracentrifuge", "Hematocrit Centrifuge"],
+    correctAnswer: 2,
+  },
+  {
+    question: "What is the pellet in centrifugation?",
+    options: ["The Liquid Portion At The Top", "The Dense Material Collected At The Bottom Of The Tube", "The Container Holding The Sample", "The Lid Of The Centrifuge"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is the supernatant in centrifugation?",
+    options: ["The Heavy Material At The Bottom", "The Clear Liquid Above The Pellet After Separation", "The Rotor Assembly", "The Motor Component"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which of the following is an advantage of programmable centrifuges?",
+    options: ["Lower Cost", "Ability To Store And Recall Frequently Used Protocols", "Smaller Size", "No Electricity Required"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What happens when a centrifuge is overloaded?",
+    options: ["Separation Is Faster", "Vibration Increases And May Cause Damage Or Injury", "Temperature Decreases", "The Timer Resets"],
+    correctAnswer: 1,
+  },
+  // Page 5: Q41-Q50
+  {
+    question: "Which centrifuge type uses magnetic fields instead of physical contact between rotating parts?",
+    options: ["Ball Bearing Centrifuge", "Magnetic Bearing Centrifuge", "Hand Centrifuge", "Clinical Centrifuge"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is the purpose of an aerosol-tight chamber in a centrifuge?",
+    options: ["To Reduce Weight", "To Contain Biohazardous Materials In Case Of Tube Breakage", "To Speed Up Separation", "To Cool The Motor"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which gas is commonly used in pneumatic (air-driven) ultracentrifuges?",
+    options: ["Oxygen", "Nitrogen Or Compressed Air", "Carbon Dioxide", "Helium"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is differential centrifugation?",
+    options: ["Separation Based On Color", "Sequential Separation Of Particles By Increasing Speed", "Separation Using Only Gravity", "Continuous Flow Separation"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Why should centrifuge tubes never be filled to the brim?",
+    options: ["To Save Sample", "To Allow Space For Expansion And Prevent Leakage During Spinning", "To Reduce Weight", "To Speed Up Separation"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is g-force in centrifugation?",
+    options: ["The Weight Of The Sample", "A Measure Of Centrifugal Acceleration Relative To Gravity", "The Speed Of The Motor", "The Temperature Inside"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which type of centrifuge is commonly used in blood banks for component separation?",
+    options: ["Microcentrifuge", "Ultracentrifuge", "Refrigerated Centrifuge With Specialized Rotors", "Hand Centrifuge"],
+    correctAnswer: 2,
+  },
+  {
+    question: "What safety feature automatically stops the centrifuge if excessive vibration is detected?",
+    options: ["Timer", "Imbalance Detection System", "Control Panel Display", "Refrigeration System"],
+    correctAnswer: 1,
+  },
+  {
+    question: "In density gradient centrifugation, separation is based on:",
+    options: ["Particle Size Only", "Particle Density (Buoyant Density)", "Particle Color", "Particle Temperature"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is the recommended practice when only one sample needs to be centrifuged?",
+    options: ["Run It Alone", "Balance It With A Blank Tube Of Equal Weight", "Use A Larger Tube", "Do Not Centrifuge Single Samples"],
+    correctAnswer: 1,
+  },
 ];

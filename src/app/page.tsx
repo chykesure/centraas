@@ -49,7 +49,7 @@ export default function WelcomePage() {
               This is a Practical Guide on how to use
             </p>
             <h1 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold leading-snug mb-6">
-              Atomic Absorption Spectrophotometre and Centrifuge
+              Atomic Absorption Spectrophotometre and Centrifuge Machine
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 15 }}

@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { centrifugeQuizQuestions } from '@/data/centrifuge-quiz';
 
 const QUESTIONS_PER_PAGE = 10;
-const POINTS_PER_QUESTION = 4;
+const POINTS_PER_QUESTION = 2;
 
 type PageState = 'quiz' | 'result' | 'review';
 
@@ -21,13 +21,51 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export default function CentrifugeQuizPage() {
-  const [shuffledQuestions] = useState(() => shuffleArray(centrifugeQuizQuestions));
-  const retakeCounter = useRef(0);
-
+  const [shuffledQuestions, setShuffledQuestions] = useState(() => shuffleArray(centrifugeQuizQuestions));
   const [currentPage, setCurrentPage] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [pageState, setPageState] = useState<PageState>('quiz');
   const [expandedReview, setExpandedReview] = useState<number | null>(null);
+
+  // Restore quiz state from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('quiz-centrifuge-state');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        // Restore shuffled question order so answers map correctly
+        if (parsed.shuffledIndices && Array.isArray(parsed.shuffledIndices) && parsed.shuffledIndices.length === centrifugeQuizQuestions.length) {
+          const restored = parsed.shuffledIndices.map((i: number) => centrifugeQuizQuestions[i]);
+          setShuffledQuestions(restored);
+        }
+        if (parsed.answers) setAnswers(parsed.answers);
+        if (typeof parsed.currentPage === 'number') setCurrentPage(parsed.currentPage);
+        if (parsed.pageState === 'result') setPageState('result');
+      } catch { /* ignore */ }
+    }
+  }, []);
+
+  // Save quiz state to localStorage on changes
+  useEffect(() => {
+    if (pageState === 'quiz') {
+      const shuffledIndices = shuffledQuestions.map(sq =>
+        centrifugeQuizQuestions.findIndex(cq => cq.question === sq.question)
+      );
+      localStorage.setItem('quiz-centrifuge-state', JSON.stringify({
+        shuffledIndices,
+        answers,
+        currentPage,
+        pageState,
+      }));
+    }
+  }, [answers, currentPage, pageState, shuffledQuestions]);
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  const retakeCounter = useRef(0);
 
   const pageQuestions = useMemo(() => {
     const start = currentPage * QUESTIONS_PER_PAGE;
@@ -49,10 +87,12 @@ export default function CentrifugeQuizPage() {
   };
 
   const handleSubmit = () => {
+    localStorage.removeItem('quiz-centrifuge-state');
     setPageState('result');
   };
 
   const handleRetake = () => {
+    localStorage.removeItem('quiz-centrifuge-state');
     setAnswers({});
     setCurrentPage(0);
     setPageState('quiz');

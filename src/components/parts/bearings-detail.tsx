@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, CircleDot, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Star, AlertTriangle } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -125,7 +125,6 @@ export default function BearingsDetail() {
           custom={2}
         >
           <div className="flex items-center gap-3 mb-4">
-            <CircleDot className="text-[#1a237e]" size={28} />
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1a237e]">BEARINGS</h2>
           </div>
           <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -156,9 +155,7 @@ export default function BearingsDetail() {
                     className="object-cover"
                   />
                 </div>
-                {/* Dark blue gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a237e]/80 via-[#1a237e]/20 to-transparent" />
-                <span className="absolute bottom-3 left-3 right-3 text-white text-sm font-medium">
+                <span className="absolute bottom-3 left-3 right-3 text-white text-xs sm:text-sm font-medium leading-snug">
                   {item.label}
                 </span>
               </div>
@@ -379,11 +376,11 @@ export default function BearingsDetail() {
           animate="visible"
           custom={10}
         >
-          <div className="bg-gradient-to-r from-[#1a237e] to-[#4169E1] rounded-2xl p-8 sm:p-10 text-center">
+          <div className="bg-gradient-to-r from-[#1a237e] to-[#4169E1] rounded-2xl p-8 sm:p-10 text-left">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Understanding Bearings
             </h2>
-            <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-blue-100 text-base sm:text-lg leading-relaxed">
               Proper bearing selection and maintenance are critical for centrifuge performance,
               safety, and the quality of separation results.
             </p>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, Sparkles, Play, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Star, Sparkles, Play } from 'lucide-react';
 
 export default function AASVideoPage() {
   return (
@@ -75,37 +75,7 @@ export default function AASVideoPage() {
         </div>
       </motion.div>
 
-      {/* Video info bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="relative z-10 px-5 sm:px-8 md:px-16 pb-8"
-      >
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-white/80 text-sm font-medium">AAS Machine Tutorial</p>
-              <p className="text-white/40 text-xs">YouTube Video</p>
-            </div>
-          </div>
 
-          <a
-            href="https://youtu.be/2ZXTkkN0KiQ?si=1s5poRf2ULnKMMhT"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-white/10 border border-white/10 text-white/70 text-sm hover:bg-white/15 hover:text-white transition-all duration-200"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-            Watch on YouTube
-          </a>
-        </div>
-      </motion.div>
 
       {/* Centraas branding */}
       <motion.div

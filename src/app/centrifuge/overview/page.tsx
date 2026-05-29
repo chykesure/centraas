@@ -389,25 +389,6 @@ export default function CentrifugeOverviewPage() {
             />
           </div>
 
-          {/* Component labels - External Parts */}
-          <h3 className="text-[#1a237e] font-bold text-sm sm:text-base mb-3">External Components</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
-            {[
-              'Lid Latch & Safety Interlock',
-              'Lid Gasket (Cooling System)',
-              'Centrifuge Housing',
-              'Control Panel (Display Screen)',
-              'Operation Buttons',
-              'Status LEDs',
-              'Power Switch',
-            ].map((label, i) => (
-              <div key={i} className="flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-sm border border-gray-100">
-                <div className="w-2 h-2 rounded-full bg-[#4169E1] flex-shrink-0" />
-                <span className="text-black/70 text-xs sm:text-sm">{label}</span>
-              </div>
-            ))}
-          </div>
-
           {/* Component labels - Internal Parts */}
           <h3 className="text-[#1a237e] font-bold text-sm sm:text-base mb-3">Internal Components</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
@@ -466,7 +447,7 @@ export default function CentrifugeOverviewPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.65 }}
         >
-          <div className="bg-gradient-to-r from-[#1a237e] to-[#4169E1] rounded-2xl p-5 sm:p-6 text-center">
+          <div className="bg-gradient-to-r from-[#1a237e] to-[#4169E1] rounded-2xl p-5 sm:p-6 text-left">
             <p className="text-white/90 text-sm sm:text-base leading-relaxed">
               The centrifuge machine remains one of the cornerstone tools of modern science and industry. Its ability to rapidly and precisely separate complex mixtures has made it irreplaceable in laboratories and factories worldwide. Understanding its characteristics, benefits, and limitations is essential for anyone working in the life sciences, engineering, or industrial processing fields.
             </p>
